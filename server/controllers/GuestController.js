@@ -59,7 +59,7 @@ const SendResetEmail = async (req, res) => {
      
 
       if (!user) {
-          return res.status(404).json({ message: 'Ladresse email nappartient à aucun utilisateur' });
+          return res.status(404).json({ message: 'Ladresse email n appartient à aucun utilisateur' });
       }
       // Générer un code OTP
       const otp = otpGenerator.generate(6, { upperCase: false, specialChars: false });
@@ -117,6 +117,9 @@ const verifyOtp = async (req, res) => {
       return res.status(500).json({ message: 'Erreur lors de la vérification du code OTP.' });
     }
   };
+
+
+  
   const ResetPassword = async (req, res) => {
     const { newPassword,email } = req.body;
   
